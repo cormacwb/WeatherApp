@@ -1,0 +1,32 @@
+<div class="toolbar" role="banner">
+  <span class="app-title"><h1>Weather App</h1></span>
+</div>
+
+<div class="content" role="main">
+
+<div class="col">
+  <p>Select a city</p>
+  <select id="city" [(ngModel)]="selectedCity" (change)="onChange()">
+    <option default></option>
+    <option>Dublin</option>
+    <option>Vancouver</option>
+    <option>Tokyo</option>
+  </select>
+</div>
+
+<div class="tableWrapper" *ngIf="weatherResponse">
+  <table class="fl-table">
+    <tr> <td> Local time </td> <td> {{weatherResponse.localTime | date: 'shortTime'}} </td> </tr>
+    <tr> <td> Timezone </td> <td> {{weatherResponse.timeZone}} </td> </tr>
+    <tr> <td> Temperature (c) </td> <td> {{weatherResponse.temperatureC}} </td> </tr>
+    <tr> <td> Feels like </td> <td> {{weatherResponse.feelsLikeC}} </td> </tr>
+    <tr> <td> Wind speed (km/h) </td> <td> {{weatherResponse.windKph}} </td> </tr>
+    <tr> <td> Precipitation (mm) </td> <td> {{weatherResponse.precipitationMm}} </td> </tr>
+    <tr> <td> Sunrise </td> <td> {{weatherResponse.sunrise | date: 'shortTime'}} </td> </tr>
+    <tr> <td> Sunset </td> <td> {{weatherResponse.sunset | date: 'shortTime'}} </td> </tr>
+    <tr> <td> Moonrise </td> <td> {{weatherResponse.moonrise | date: 'shortTime'}} </td> </tr>
+    <tr> <td> Moonset </td> <td> {{weatherResponse.moonset | date: 'shortTime'}} </td> </tr>
+    <tr> <td> Moon phase </td> <td> {{weatherResponse.moonPhase}} </td> </tr>
+    <tr> <td> Moon illumination </td> <td> {{weatherResponse.moonIllumination}} </td> </tr>
+  </table>
+</div>
